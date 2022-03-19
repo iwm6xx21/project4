@@ -11,6 +11,8 @@
 - MongoDB
 - Mongoose
 - Multer
+- Cloudinary
+- Nodemailer
 
 ## MVP
 
