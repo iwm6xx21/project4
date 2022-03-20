@@ -25,7 +25,7 @@ body {
 }
 
 .logo {
-  color: aqua;
+  color: rgb(53, 195, 195);
   margin-left: 20px;
 }
 
@@ -35,4 +35,90 @@ body {
 
 .like {
   margin-right: 20px;
+}
+
+.backHomeLink {
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: rgb(53, 195, 195) !important;
+  border-color: black !important;
+  border-radius: 10px !important;
+}
+
+.btn-primary:hover {
+  background-color: rgb(85, 83, 83) !important;
+}
+
+/* Editor page styling */
+
+.mainContainer {
+  margin-top: 30px;
+  height: 480px;
+  width: 900px;
+  display: flex;
+  border-radius: 10px;
+  background: rgba (255, 255, 255, 0.05);
+  overflow: hidden;
+  box-shadow: 0.1px 4px 8px 5px rgba(0, 0, 0, 0.1);
+  margin: auto;
+}
+
+/* Tools for Editor*/
+
+.devTools {
+  height: 100%;
+  width: 10%;
+  box-shadow: 0.1px 4px 8px 5px rgba(0, 0, 0, 0.1);
+}
+
+.devTools ul {
+  list-style: none;
+}
+
+.devTools ul li {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  transition: 0.4s;
+}
+
+.devTools ul li i {
+  margin-top: 10px;
+}
+
+.devTools ul li:hover p {
+  background-color: aqua;
+}
+
+.image {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 50%;
+  height: 50%;
+  object-fit: cover;
+}
+
+.imageCanvas {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.canvas {
+  position: relative;
+  width: 100%;
+  height: 80%;
+}
+
+.canvas img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px;
 }
