@@ -1,44 +1,131 @@
 
-<h1>Testing</h1>
-<div class="mainContainer">
 
-    <div class="devTools">
-        <ul>
-            <li>
-                <span class="iconify" data-icon="bx:brightness-half"data-width="50"></span>
-                <p>Brightness</p>
-            </li>
-            <li>
-                <span class="iconify" data-icon="bx:brush" data-width="50"></span>
-                <p>Brush</p>
-            </li>
-            <li>
-                <span class="iconify" data-icon="bx:collection" data-width="50"></span>
-                <p>Greyscale</p>
-            </li>
-            <li>
-                <span class="iconify" data-icon="bx:color-fill" data-width="50"></span>
-                <p>Color</p>
-            </li>
-            <li>
-                <span class="iconify" data-icon="carbon:magic-wand" data-width="50"></span>
-                <p>Saturation</p>
-            </li>
-            <li>
-                <span class="iconify" data-icon="bx:export" data-width="50"></span>
-                <p>Download</p>
-            </li>
-        </ul>
+
+<body class="editorBody">
+
+    <div class="mainContainer">
+
+        <div class="devTools">
+
+            <div class="listDiv">
+                <ul>
+                    <li class="bright">
+                        <span class="iconify" data-icon="bx:brightness-half"data-width="50"></span>
+                        <p>Brightness</p>
+                    </li>
+                    <li class="brushOption">
+                        <span class="iconify" data-icon="bx:brush" data-width="50"></span>
+                        <p>Brush</p>
+                    </li>
+                    <li class="greyscaleOption">
+                        <span class="iconify" data-icon="bx:collection" data-width="50"></span>
+                        <p>Greyscale</p>
+                    </li>
+                    <li class="colorOption">
+                        <span class="iconify" data-icon="bx:color-fill" data-width="50"></span>
+                        <p>Color</p>
+                    </li>
+                    <li class="saturationOption">
+                        <span class="iconify" data-icon="carbon:magic-wand" data-width="50"></span>
+                        <p>Saturation</p>
+                    </li>
+                    <li class="li">
+                        <span class="iconify" data-icon="akar-icons:image" data-width="50"></span>
+                        <p>Change</p>
+                    </li>
+                    <li class="download">
+                        <span class="iconify" data-icon="bx:export" data-width="50"></span>
+                        <p>Download</p>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="content">
+
+
+        </div>
+
+       
+        <div id="canvas">
+
+            <!-- <canvas id="canvas">
+                <!-- <img src="https://i.imgur.com/3Vw5ruG.jpeg" alt=""> -->
+            <!-- </canvas> --> 
+
+                <div class="imageDiv">
+                    <img class="image" id="my_image"
+                    src="<%= images.img %> " alt="">
+                </div>
+
+                <div  class="row text-center my-3">
+                    <div class="col-md-2"> 
+                        <div  class="btn-group btn-group-sm brightness">
+                            <button class="filter-btn brightness-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled"disabled>Brightness</button>
+                            <button class="filter-btn brightness-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2"> 
+                        <div class="btn-group btn-group-sm brush">
+                            <button class="filter-btn brush-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled" disabled>Brush</button>
+                            <button class="filter-btn brush-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2"> 
+                        <div class="btn-group btn-group-sm greyscale">
+                            <button class="filter-btn greyscale-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled" disabled>Greyscale</button>
+                            <button class="filter-btn greyscale-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2"> 
+                        <div class="btn-group btn-group-sm color">
+                            <button class="filter-btn color-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled" disabled>Color</button>
+                            <button class="filter-btn color-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    <div class="col-md-2"> 
+                        <div class="btn-group btn-group-sm saturation">
+                            <button class="filter-btn saturation-remove btn btn-info">-</button>
+                            <button class="btn btn-secondary btn-disabled" disabled>Saturation</button>
+                            <button class="filter-btn saturation-add btn btn-info">+</button>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="selections">
+                        <input type="range" max="200" min="0" value="100" id="brightness" class="slider">
+                        <p id="brightVal" class="show_value">100</p>
+                    </div>
+          
+                     <div class="selections">
+                        <input type="range" max="40" min="0" value="0" id="blur" class="slider">
+                        <p id="blurVal" class="show_value">0</p>
+                    </div>
+          
+                     <div class="selections">
+                        <input type="range" max="100" min="0" value="0" id="greyScale" class="slider">
+                        <p id="greyVal" class="show_value">0</p>
+                    </div>
+          
+                     <div class="selections">
+                        <input type="range" max="100" min="0" value="0" id="hue" class="slider">
+                        <p id="hueVal" class="show_value">0</p>
+                    </div>
+          
+                     <div class="selections">
+                        <input type="range" max="100" min="1" value="1" id="saturation" class="slider">
+                        <p id="saturationVal" class="show_value">1</p>
+                    </div> -->
+          
+                </div>
+                
+        </div>
+        
     </div>
-    <div class="content">
 
-
-    </div>
-    <div class="canvas">
-            <img class="image" src="<%= images.img %> " alt="">
-    </div>
-</div>
-
-<!-- <div class="imageCanvas">
-    <img class="image" src="<%= images.img %> " alt="">
-</div> -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js" integrity="sha512-JjFeUD2H//RHt+DjVf1BTuy1X5ZPtMl0svQ3RopX641DWoSilJ89LsFGq4Sw/6BSBfULqUW/CfnVopV5CfvRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    
+</body>

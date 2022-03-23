@@ -3,6 +3,7 @@ const router = express.Router()
 const Image = require('../models/image')
 
 
+
 router.get('/', (req, res) => {
     res.render('home')
 })
