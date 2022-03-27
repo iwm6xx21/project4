@@ -5,7 +5,11 @@
         <button class="like">Like</button>
    </div> -->
 
-    <div class="mainContainer"  id="imageID" target="<%=images.id%>" >
+   
+
+    <div class="mainContainer"  id="imageID" target="<%=images._id%>" >
+    
+    
 
         <div class="devTools">
 
@@ -56,8 +60,10 @@
             <!-- </canvas> --> 
 
                 <div class="imageDiv">
-                    <img class="image" id="my_image"
-                    src="<%= images.img %> " alt="">
+                    <% for (let image of images.img) { %>
+                        <img class="image" id="my_image"
+                    src="<%= image.url %> " alt="">
+                     <% } %>
                 </div>
                 <div  class="row text-center my-3">
                     <div class="col-md-2"> 
@@ -79,18 +85,14 @@
                             <button class="filter-btn greyscale-remove btn btn-info">-</button>
                             <button class="btn btn-secondary btn-disabled" disabled>Greyscale</button>
                             <button class="filter-btn greyscale-add btn btn-info">+
-                                <!-- <form action="/edit/<%=images.id%>?_method=PUT" method="POST">
-                                +
-                                <input type="submit" value="<%= images.greyscale %> " name="greyscale" id="greyscale" >
-                                <button>submit</button> -->
-                            <!-- </form> -->
+                               
                             </button>
                         </div>
                     </div>
                     <div class="col-md-2"> 
                         <div class="btn-group btn-group-sm color">
                             <button class="filter-btn color-remove btn btn-info">
-                                <form action="/<%=images.id%>_method=PUT" method="POST"></form>
+                                <!-- <form action="/_method=PUT" method="POST"></form> -->
                             -</button>
                             <button class="btn btn-secondary btn-disabled" disabled>Blur</button>
                             <button class="filter-btn color-add btn btn-info">+</button>

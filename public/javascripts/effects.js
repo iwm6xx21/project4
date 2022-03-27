@@ -74,6 +74,7 @@ let saturationCounts = saturationTarget
 let blurCounts = blurTarget
 let currentlyAdjusting = imageIDTarget
 
+
 // click event for effects
 document.addEventListener('click', (e) => {
     e.preventDefault();

@@ -3,7 +3,9 @@ const express = require('express')
 const { base } = require('../models/image')
 const router = express.Router()
 const Image = require('../models/image')
-let Caman = require('caman').Caman
+const multer = require('multer')
+const {storage} = require('../cloudinary')
+const upload = multer({storage})
 
 
 
@@ -22,8 +24,9 @@ router.get('/:id', async (req, res) => {
 })
 
 // post route for uploading image to the editor
-router.post('/editor', async (req, res) => {
+router.post('/editor', upload.array('img'), async (req, res) => {
     const uploads = new Image(req.body)
+    uploads.img = req.files.map(f => ({url: f.path, filename: f.filename}))
     await uploads.save()
     res.redirect(`/${uploads.id}`);
 })
@@ -48,7 +51,7 @@ router.put('/:id',  async (req, res) => {
 //     })
 //     const images = await Image.findById(req.params.id)
 //     res.redirect(`/${images.id}`)
-    console.log(req.body)
+    // console.log(req.body)
     Image.findByIdAndUpdate(req.params.id, req.body, {new: true}, (img) => {
         return Image.find({}).then(imgs => {
             return res.json(imgs)
@@ -56,20 +59,6 @@ router.put('/:id',  async (req, res) => {
     })
 
 })
-
-//update route
-
-// router.put('/:id', async (req, res) => {
-//     let images = await Image.findByIdAndUpdate(req.params.id, req.body) 
-//      await images.save()
-//     Caman(images), function () {
-//         this.brightness(5);
-//         this.render(function(){
-//         this.save(images.save())
-//         });
-//     }
-//     res.render( 'show',{images})
-// })
 
 
 

@@ -19,10 +19,14 @@
   "homepage": "https://github.com/iwm6xx21/project4#readme",
   "dependencies": {
     "caman": "^4.1.2",
+    "cloudinary": "^1.29.0",
+    "dotenv": "^16.0.0",
     "ejs": "^3.1.6",
     "express": "^4.17.3",
     "express-ejs-layouts": "^2.5.1",
     "method-override": "^3.0.0",
-    "mongoose": "^6.2.7"
+    "mongoose": "^6.2.7",
+    "multer": "^1.4.4",
+    "multer-storage-cloudinary": "^4.0.0"
   }
 }

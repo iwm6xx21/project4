@@ -2,7 +2,8 @@
 
 <h1>Upload Image</h1>
 
-<form action="/editor" method="POST">
-    <input required type="text" placeholder="Image" name="img" id="img">
+<form action="/editor" method="POST" enctype="multipart/form-data">
+    <input  required type="file"  placeholder="Image" name="img" id="img" >
+    <!-- <input required type="text" placeholder="Image" name="img" id="img"> -->
     <button>Let's Get Started!</button>
 </form>

@@ -1,7 +1,13 @@
 const mongoose = require('../db/connections')
 
 const imageSchema = new mongoose.Schema({
-    img: {type: String},
+    // img: {type: String},
+    img: [
+        {
+            url: String,
+            filename: String
+        }
+    ],
     brightness: {type: Number, default: 100},
     brush: {type: Number, default: 0},
     greyscale: {type: Number, default: 0},
