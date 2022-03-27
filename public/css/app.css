@@ -54,7 +54,7 @@ body {
 /* Editor page styling */
 
 .mainContainer {
-  height: 740px;
+  height: 780px;
   width: 1100px;
   display: flex;
   border-radius: 10px;
@@ -187,5 +187,27 @@ ul li {
 }
 
 .saturation {
+  visibility: hidden;
+}
+
+/* Effect Count Styling*/
+
+.brightnessCounter {
+  visibility: hidden;
+}
+
+.brushCounter {
+  visibility: hidden;
+}
+
+.greyscaleCounter {
+  visibility: hidden;
+}
+
+.blurCounter {
+  visibility: hidden;
+}
+
+.saturationCounter {
   visibility: hidden;
 }
