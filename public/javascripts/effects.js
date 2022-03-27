@@ -13,9 +13,6 @@ const effectCount = document.querySelector('.effectCount')
 
 
 
-
-
-
 // effect div
 const brightness = document.querySelector('.brightness')
 const brush = document.querySelector('.brush')
@@ -78,7 +75,6 @@ let blurCounts = blurTarget
 let currentlyAdjusting = imageIDTarget
 
 // click event for effects
-
 document.addEventListener('click', (e) => {
     e.preventDefault();
             image.style.filter = `grayscale(${greyCounts}%) brightness(${brightnessCounts}%) hue-rotate(${brushCounts}deg) saturate(${saturationCounts}%) blur(${blurCounts}px)`
@@ -87,53 +83,67 @@ document.addEventListener('click', (e) => {
                     brightness: brightnessCounts <= 200 ? countBrightness.innerText = brightnessCounts++ : 200
                     
                 })
-                // .then((res) => {
-                //     let data = res.data
-                //     data.map(item => {
-                //         return item.brightness = brightnessCounts++
-                //     })
-                //     // console.log(data)
-                // })
-                // brightnessCounts <= 200 ? countBrightness.innerText = brightnessCounts++ : 200
+                
             }
 
             if(e.target.classList.contains('brightness-remove')){
+                
                 axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
                     brightness: brightnessCounts >= 0 ? countBrightness.innerText = brightnessCounts-- :  0
                     
                 })
-                // brightnessCounts >= 0 ? countBrightness.innerText = brightnessCounts-- :  0
             }
 
             if(e.target.classList.contains('greyscale-add')){
-                greyCounts <= 100 ? countGreyscale.innerText = greyCounts++ : 100
+
+                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                    greyscale: greyCounts <= 100 ? countGreyscale.innerText = greyCounts++ : 100
+                })
             }
 
             if(e.target.classList.contains('greyscale-remove')) {
-                greyCounts > 0 ? countGreyscale.innerText = greyCounts -=1 : 0
+
+                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                    greyscale: greyCounts > 0 ? countGreyscale.innerText = greyCounts -=1 : 0
+                })
             }
 
             if(e.target.classList.contains('brush-add')){
-                brushCounts <= 100 ? countBrush.innerText = brushCounts++ : 100
+                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                    brush: brushCounts <= 100 ? countBrush.innerText = brushCounts++ : 100
+                })
             }
 
             if(e.target.classList.contains('brush-remove')) {
-                brushCounts > 0 ? countBrush.innerText = brushCounts -=1 : 0
+                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                    brush: brushCounts >= 0 ? countBrush.innerText = brushCounts -=1 : 0
+                })
             }
 
             if(e.target.classList.contains('saturation-add')){
-                saturationCounts <= 200 ? countSaturation.innerText = saturationCounts++ : 200
+                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                    saturation: saturationCounts <= 200 ? countSaturation.innerText = saturationCounts++ : 200
+                })
             }
 
             if(e.target.classList.contains('saturation-remove')){
-                saturationCounts >= 0 ? countSaturation.innerText = saturationCounts-- :  0
+                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                    saturation: saturationCounts >= 0 ? countSaturation.innerText = saturationCounts-- :  0
+                })
+
             }
 
             if(e.target.classList.contains('color-add')){
-                blurCounts <= 4 ? countBlur.innerText = blurCounts++ : 4
+                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                    blur: blurCounts <= 4 ? countBlur.innerText = blurCounts++ : 4
+                })
             }
+
             if(e.target.classList.contains('color-remove')){
-                blurCounts > 0 ? countBlur.innerText = blurCounts -=1 : 0
+
+                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                    blur: blurCounts > 0 ? countBlur.innerText = blurCounts -=1 : 0
+                })
             }
 });
 
