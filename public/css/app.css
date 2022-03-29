@@ -1,5 +1,6 @@
 body {
   background-color: ghostwhite;
+  overflow: hidden;
 }
 
 .container {
@@ -13,7 +14,6 @@ body {
   width: 1500px;
   max-width: 100%;
   min-height: 600px;
-  /* margin: auto; */
   text-align: center;
 }
 
@@ -54,7 +54,7 @@ body {
 /* Editor page styling */
 
 .mainContainer {
-  height: 780px;
+  height: 800px;
   width: 1100px;
   display: flex;
   border-radius: 10px;
@@ -64,6 +64,7 @@ body {
   background-color: rgb(199, 199, 201);
   margin: auto;
   margin-top: 60px;
+  /* overflow: scroll; */
 }
 
 /* Tools for Editor*/
@@ -106,15 +107,50 @@ ul li {
   color: rgb(53, 195, 195);
 }
 
+.imageDiv {
+  margin: auto;
+  width: 100%;
+  margin: 20px;
+  margin-right: 50px;
+  border-radius: 10px;
+}
+
+.imager {
+  position: relative;
+  width: 100%;
+  margin: 20px;
+  margin-right: 20px;
+  border-radius: 10px;
+}
+
 .image {
+  /* display: block; */
   display: flex;
   align-items: center;
   /* margin: auto, 0; */
-  margin-top: 40px;
-  max-width: 100%;
+  width: 100%;
+  height: 600px;
+  object-fit: cover;
+  /* object-fit: fill; */
+  border-radius: 15px;
+}
+
+.image__overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 15px;
   object-fit: contain;
   object-fit: fill;
-  border-radius: 15px;
+  opacity: 10;
+}
+
+.image__overlay {
+  opacity: 0%;
 }
 
 .image:hover {
@@ -122,43 +158,13 @@ ul li {
   box-shadow: 0px 8px 6px -6px #413d3d;
 }
 
-.imageCanvas {
+/* .imageCanvas {
   display: flex;
-}
-
-#canvas {
-  width: 100%;
-  margin: 20px;
-  border-radius: 10px;
-}
-
-/* Selections*/
-
-/*.options {
-  margin-top: 0px;
-  /* position: absolute; 
-  transform: translateY(80px);
-  bottom: 0;
-  height: 50px;
-  width: 100%;
-  padding: 0 25px;
-  border-radius: 10px 10px 0 0;
-  transition: 0.5s;
-  box-shadow: 0.1px 4px 8px 5px rgba(0, 0, 0, 0.1);
-  background: rgba(255, 255, 255, 0.05);
-  margin: auto;
-} */
-
-/* .options {
-  margin-top: 20px;
 } */
 
 .btn-disabled {
   color: #fff !important;
 }
-/* .slider {
-  width: 100%;
-} */
 
 .text-center {
   display: flex;
@@ -210,4 +216,16 @@ ul li {
 
 .saturationCounter {
   visibility: hidden;
+}
+
+.carousel-item {
+  height: 12rem;
+  background: #777;
+  position: relative;
+  background-position: center;
+  background-size: cover;
+}
+
+#carouselIndicators {
+  margin: 2px;
 }

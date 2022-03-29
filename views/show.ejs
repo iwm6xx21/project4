@@ -1,15 +1,12 @@
-<!-- <body class="editorBody"> -->
+<body id="editorBody">
+
 
     <!-- <div class="header">
         <a class="backHomeLink" href="/"><h1 class="logo">Photo<span class="logoSpan">Dev</span></h1></a>
         <button class="like">Like</button>
    </div> -->
 
-   
-
     <div class="mainContainer"  id="imageID" target="<%=images._id%>" >
-    
-    
 
         <div class="devTools">
 
@@ -44,26 +41,26 @@
                         <p>Download</p>
                     </li>
                     
+                    <li class="colorifyOption">
+                        <span class="iconify colorify-add" id="colorifyCounter" target="<%=images.color1 %>, <%= images.color2 %>, <%= images.color3 %>" data-icon="bx:color" data-width="50"></span>
+                        <p>Colorify</p>
+                    </li>
+                    
                 </ul>
             </div>
         </div>
         <div class="content">
 
-
         </div>
 
-       
-        <div id="canvas">
-
-            <!-- <canvas id="canvas">
-                <!-- <img src="https://i.imgur.com/3Vw5ruG.jpeg" alt=""> -->
-            <!-- </canvas> --> 
-
-                <div class="imageDiv">
-                    <% for (let image of images.img) { %>
-                        <img class="image" id="my_image"
-                    src="<%= image.url %> " alt="">
-                     <% } %>
+        <div class="imageDiv">
+            <div class="imager">
+                <% for (let image of images.img) { %>
+                    <img class="image" id="my_image"
+                src="<%= image.url %> " alt="">
+                 <% } %>
+                 <div class="image__overlay">
+            </div>
                 </div>
                 <div  class="row text-center my-3">
                     <div class="col-md-2"> 
@@ -123,40 +120,10 @@
                             <h5 class="saturationCounter" id="saturationCounter" target="<%=images.saturation%>" ><%=images.saturation%></h5>
                         </div>
                     </div>
-                    <!-- <button>
-                        <form action="/<%=images.id%>?_method=PUT" method="POST">
-                            <input type="submit" value="Brightness">
-                        </form>
-                    </button> -->
-                    
-                    <!-- <div class="selections">
-                        <input type="range" max="200" min="0" value="100" id="brightness" class="slider">
-                        <p id="brightVal" class="show_value">100</p>
-                    </div>
-          
-                     <div class="selections">
-                        <input type="range" max="40" min="0" value="0" id="blur" class="slider">
-                        <p id="blurVal" class="show_value">0</p>
-                    </div>
-          
-                     <div class="selections">
-                        <input type="range" max="100" min="0" value="0" id="greyScale" class="slider">
-                        <p id="greyVal" class="show_value">0</p>
-                    </div>
-          
-                     <div class="selections">
-                        <input type="range" max="100" min="0" value="0" id="hue" class="slider">
-                        <p id="hueVal" class="show_value">0</p>
-                    </div>
-          
-                     <div class="selections">
-                        <input type="range" max="100" min="1" value="1" id="saturation" class="slider">
-                        <p id="saturationVal" class="show_value">1</p>
-                    </div> -->
           
                 </div>
-                
         </div>
+        
         
     </div>
 
@@ -164,4 +131,4 @@
         <script src="/javascripts/effects.js"></script>
        
     
-<!-- </body> -->
+</body>

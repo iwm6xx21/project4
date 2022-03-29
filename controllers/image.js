@@ -1,6 +1,6 @@
-const { request } = require('express')
+// const { request } = require('express')
 const express = require('express')
-const { base } = require('../models/image')
+// const { base } = require('../models/image')
 const router = express.Router()
 const Image = require('../models/image')
 const multer = require('multer')
@@ -59,6 +59,17 @@ router.put('/:id',  async (req, res) => {
     })
 
 })
+
+// router.put('/color/:id', async (req,res) => {
+//         Image.findByIdAndUpdate(req.params.id, req.body, {new: true}, (color) => {
+//             return Image.find({color1: 0, color2: 0, color3: 0}, {
+//                 setField:{value: Math.floor(Math.random() * (255 - 0 + 1)) + 0}
+//             }).then(colors => {
+//                 return res.json(colors)
+//         })
+//     })
+// })
+
 
 
 

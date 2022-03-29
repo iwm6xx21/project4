@@ -9,6 +9,7 @@ const imageController = require('./controllers/image')
 
 
 
+
 app.use(express.static('public'))
 
 app.use(express.urlencoded({extended:true}));
