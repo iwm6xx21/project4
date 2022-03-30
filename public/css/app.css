@@ -3,6 +3,27 @@ body {
   overflow: hidden;
 }
 
+#sticker {
+  color: ghostwhite;
+}
+
+.slogan {
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Lato", sans-serif;
+  font-size: 40px;
+  color: rgb(109, 105, 105);
+}
+#pTag {
+  font-family: "Lato", sans-serif;
+  font-size: 20px;
+}
+
+#uploadFont {
+  font-family: "Lato", sans-serif;
+  font-size: 40px;
+  color: rgb(109, 105, 105);
+}
+
 .container {
   margin-top: 30px;
   background-color: white;
@@ -15,6 +36,13 @@ body {
   max-width: 100%;
   min-height: 600px;
   text-align: center;
+  background: linear-gradient(110deg, whitesmoke 60%, #1fd9c3 60%);
+  background: linear-gradient(110deg, whitesmoke 60%, #1fd9c3 60%);
+}
+
+#uploadBackground {
+  background: linear-gradient(110deg, #1fd9c3 60%, whitesmoke 60%);
+  background: linear-gradient(110deg, #1fd9c3 60%, whitesmoke 60%);
 }
 
 .header {
@@ -25,7 +53,7 @@ body {
 }
 
 .logo {
-  color: rgb(53, 195, 195);
+  color: #1fd9c3;
   margin-left: 20px;
 }
 
@@ -42,13 +70,13 @@ body {
 }
 
 .btn-primary {
-  background-color: rgb(53, 195, 195) !important;
-  border-color: rgb(53, 195, 195) !important;
+  background-color: dimgray !important;
+  border-color: white !important;
   border-radius: 10px !important;
 }
 
 .btn-primary:hover {
-  background-color: rgb(85, 83, 83) !important;
+  background-color: #1fd9c3 !important;
 }
 
 /* Editor page styling */
@@ -82,7 +110,7 @@ body {
 }
 
 ul li:hover .iconify {
-  color: rgb(53, 195, 195);
+  color: #1fd9c3;
 }
 
 ul {
@@ -104,7 +132,7 @@ ul li {
 }
 
 .devTools li:hover p {
-  color: rgb(53, 195, 195);
+  color: #1fd9c3;
 }
 
 .imageDiv {
@@ -173,7 +201,7 @@ ul li {
 }
 
 .filter-btn {
-  background-color: rgb(53, 195, 195) !important;
+  background-color: #1fd9c3 !important;
 }
 
 .brightness {
@@ -218,14 +246,14 @@ ul li {
   visibility: hidden;
 }
 
+.resetColor {
+  visibility: hidden;
+}
+
 .carousel-item {
-  height: 12rem;
+  height: 14rem;
   background: #777;
   position: relative;
   background-position: center;
   background-size: cover;
-}
-
-#carouselIndicators {
-  margin: 2px;
 }

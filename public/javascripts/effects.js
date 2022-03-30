@@ -1,4 +1,3 @@
-console.log('Hey')
 // effect list
 const optionOne = document.querySelector('.bright')
 const optionTwo = document.querySelector('.brushOption')
@@ -12,6 +11,9 @@ const imageSource = document.querySelector('.image').src
 const effectCount = document.querySelector('.effectCount')
 const imageDiv = document.querySelector('.imageDiv')
 const grabOverlay = document.querySelector('.image__overlay')
+const resetColor = document.querySelector('.resetColor')
+
+
 
 
 
@@ -41,11 +43,13 @@ let saturationTarget = countSaturation.getAttribute('target')
 let imageIDTarget = imageID.getAttribute('target')
 let colorifyTarget = countColorify.getAttribute('target')
 let currentlyAdjusting = imageIDTarget
-console.log(colorifyTarget)
 
+// Pin filter effects
 image.style.filter = `grayscale(${greyscaleTarget}%) brightness(${brightTarget}%) hue-rotate(${brushTarget}deg) saturate(${saturationTarget}%) blur(${blurTarget}px)`
 
-grabOverlay.style.opacity = "0.40"
+
+// Pin colorify effect
+grabOverlay.style.opacity = "0.40" 
 grabOverlay.style.backgroundColor = `rgba(${colorifyTarget})`
 
 // Unhide effect options on button click
@@ -79,9 +83,9 @@ let brushCounts = brushTarget
 let saturationCounts = saturationTarget
 let blurCounts = blurTarget
 
-
+// add colorify effect on button click
 colorifyOption.addEventListener('click', () => {
-    // grabOverlay.style.visibility ='visible'
+    resetColor.style.visibility = "visible"
     function randomColor(){
         return Math.floor(Math.random() * 255 );
     } 
@@ -94,7 +98,6 @@ colorifyOption.addEventListener('click', () => {
         color2: colorTwo,
         color3: colorThree
     }).then ( (res) => {
-        console.log(res.data)
         grabOverlay.style.opacity = "0.40"
         grabOverlay.style.backgroundColor = `rgba(${colorOne}, ${colorTwo}, ${colorThree})`
     }) 
@@ -103,7 +106,29 @@ colorifyOption.addEventListener('click', () => {
         
 })
 
-// click event for effects
+// remove colorify
+resetColor.addEventListener('click', () => {
+    let colorOne = 0
+    let colorTwo = 0
+    let colorThree = 0
+    // axios here
+    axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+        color1: colorOne,
+        color2: colorTwo,
+        color3: colorThree
+    }).then ( (res) => {
+        // need to fix this on remove to stay at 0 on refresh
+        grabOverlay.style.opacity = "0"
+        grabOverlay.style.backgroundColor = `rgba(${colorOne}, ${colorTwo}, ${colorThree})`
+    }) 
+        
+        
+})
+
+
+
+
+// click event for filter effects
 document.addEventListener('click', (e) => {
     e.preventDefault();
             image.style.filter = `grayscale(${greyCounts}%) brightness(${brightnessCounts}%) hue-rotate(${brushCounts}deg) saturate(${saturationCounts}%) blur(${blurCounts}px)`
@@ -175,6 +200,7 @@ document.addEventListener('click', (e) => {
 });
 
 
+// download image 
 optionDownload.addEventListener('click', () => {
         axios({
             url: imageSource,
