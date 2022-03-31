@@ -1,4 +1,12 @@
 
-<% images.forEach((upload, index)=>{ %>
-   <img src="<%= upload.img %> " alt=""> 
-<% }) %> 
+   <% images.forEach((upload, index)=>{ %>
+      <img src="<%= upload.img %> " alt=""> 
+   <% }) %> 
+
+   <a href="https://picsum.photos/200/300" download="random.png">
+      Download this image
+    </a>
+    <button id="download-link">Download Image</button>
+
+    <script src="/javascripts/test.js"></script>
+

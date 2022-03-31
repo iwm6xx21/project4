@@ -6,12 +6,17 @@ const optionFour = document.querySelector('.colorOption')
 const optionFive = document.querySelector('.saturationOption')
 const optionDownload = document.querySelector('.download')
 const colorifyOption = document.querySelector('.colorifyOption')
-let image = document.querySelector('.image')
+const image = document.querySelector('.image')
 const imageSource = document.querySelector('.image').src
 const effectCount = document.querySelector('.effectCount')
 const imageDiv = document.querySelector('.imageDiv')
 const grabOverlay = document.querySelector('.image__overlay')
 const resetColor = document.querySelector('.resetColor')
+const canvas = document.querySelector('#image_canvas')
+const context = canvas.getContext('2d');
+
+console.log(context)
+
 
 
 
@@ -45,12 +50,18 @@ let colorifyTarget = countColorify.getAttribute('target')
 let currentlyAdjusting = imageIDTarget
 
 // Pin filter effects
-image.style.filter = `grayscale(${greyscaleTarget}%) brightness(${brightTarget}%) hue-rotate(${brushTarget}deg) saturate(${saturationTarget}%) blur(${blurTarget}px)`
+const styling = image.style.filter = `grayscale(${greyscaleTarget}%) brightness(${brightTarget}%) hue-rotate(${brushTarget}deg) saturate(${saturationTarget}%) blur(${blurTarget}px)`
+
 
 
 // Pin colorify effect
 grabOverlay.style.opacity = "0.40" 
-grabOverlay.style.backgroundColor = `rgba(${colorifyTarget})`
+grabOverlay.style.backgroundColor = `rgb(${colorifyTarget})`
+
+
+const coloring = image.style.fillStyle =`rgba(${colorifyTarget})`
+console.log(context.fillStyle = coloring)
+
 
 // Unhide effect options on button click
 optionOne.addEventListener('click', () => {
@@ -92,7 +103,7 @@ colorifyOption.addEventListener('click', () => {
     let colorOne = randomColor()
     let colorTwo = randomColor()
     let colorThree = randomColor() 
-    // axios here
+    
     axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
         color1: colorOne,
         color2: colorTwo,
@@ -117,20 +128,18 @@ resetColor.addEventListener('click', () => {
         color2: colorTwo,
         color3: colorThree
     }).then ( (res) => {
-        // need to fix this on remove to stay at 0 on refresh
         grabOverlay.style.opacity = "0"
         grabOverlay.style.backgroundColor = `rgba(${colorOne}, ${colorTwo}, ${colorThree})`
+        resetColor.style.visibility = "hidden"
     }) 
         
         
 })
 
 
-
-
 // click event for filter effects
 document.addEventListener('click', (e) => {
-    e.preventDefault();
+    // e.preventDefault();
             image.style.filter = `grayscale(${greyCounts}%) brightness(${brightnessCounts}%) hue-rotate(${brushCounts}deg) saturate(${saturationCounts}%) blur(${blurCounts}px)`
             if(e.target.classList.contains('brightness-add')){
                 axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
@@ -200,19 +209,27 @@ document.addEventListener('click', (e) => {
 });
 
 
+
 // download image 
-optionDownload.addEventListener('click', () => {
-        axios({
-            url: imageSource,
-            method: 'GET',
-            responseType: 'blob',
-        }).then((response) => {
-                    const url = window.URL.createObjectURL(new Blob([response.data]));
-                    const link = document.createElement("a");
-                    link.href = url;
-                    link.setAttribute("download", "image.jpg");
-                    document.body.appendChild(link);
-                    link.click();
-                    document.body.removeChild(link);
-                })
+optionDownload.addEventListener('click', async () => {
+    context.filter = styling
+    context.fillStyle = coloring
+    context.shadowColor = coloring
+    context.shadowOffsetX =  50
+    console.log(context)
+    context.drawImage(image, 0,0, canvas.width, canvas.height);
+    let jpegUrl = canvas.toDataURL('image/jpg')
+    const anchor = document.createElement("a");
+    anchor.style.display = "none";
+    anchor.href = jpegUrl;
+    anchor.download = "image-name.png";
+    document.body.appendChild(anchor);
+    anchor.click();
+    document.body.removeChild(anchor)
+    
 })
+
+
+
+
+

@@ -1,13 +1,27 @@
-<!-- <body class="uploadBackground"> -->
+<body class="body">
     
 
-<h1 class="text-center mt-5" id="uploadFont"> Upload Your Image</h1>
 
-<div class="container" id="uploadBackground">
+<div class="contentContainer">
+    <div class="uploadTextContainer">
+         <h1 class="text-center mt-5" id="uploadFont"><span class="iconify" id="imageSpan" data-icon="bi:card-image" data-width="60"></span> Upload Your Image</h1>
+    </div>
+    <div class="boxContainer">
+        <div class="box"></div>
+        <div class="circle"></div>
+        <div class="triangle"></div>
+        <div class="box" id="gold"></div>
+    </div>
+</div>
+
+
+<div class="uploadContainer" id="uploadBackground">
         <form class="text-center mt-5" action="/editor" method="POST" enctype="multipart/form-data">
-            <input class="form-control mt-5 w-50" required type="file"  placeholder="Image" name="img" id="img" >
-            <button class="btn btn-secondary btn-md mt-5"  >Let's Get Started!</button>
+            <input class="form-control mt-5 w-50 mr-2" required type="file"  placeholder="Image" name="img" id="img" >
+            <button class="btn btn-secondary btn-md mt-5 "  >Upload</button>
         </form>
 </div>
 
-<!-- </body> -->
+
+
+</body>

@@ -1,11 +1,4 @@
-<body id="editorBody">
-
-
-    <!-- <div class="header">
-        <a class="backHomeLink" href="/"><h1 class="logo">Photo<span class="logoSpan">Dev</span></h1></a>
-        <button class="like">Like</button>
-   </div> -->
-
+<!-- <body id="editorBody"> -->
     <div class="mainContainer"  id="imageID" target="<%=images._id%>" >
 
         <div class="devTools">
@@ -52,35 +45,36 @@
         <div class="content">
             <!-- <button class="resetColor">Reset</button> -->
         </div>
-
+        <canvas id="image_canvas" width="2400px" height="1600px"></canvas>
         <div class="imageDiv">
             <div class="imager">
                 <% for (let image of images.img) { %>
-                    <img class="image" id="my_image"
+                    <img crossorigin="anonymous" class="image" id="my_image"
                 src="<%= image.url %> " alt="">
                  <% } %>
                  <div class="image__overlay">
             </div>
                 </div>
+                
                 <div  class="row text-center my-3">
                     <div class="col-md-2"> 
                         <div  class="btn-group btn-group-sm brightness">
                             <button class="filter-btn brightness-remove btn btn-info">-</button>
-                            <button class="btn btn-secondary btn-disabled"disabled>Brightness</button>
+                            <button class="btn btn-light btn-disabled"disabled>Brightness</button>
                             <button class="filter-btn brightness-add btn btn-info">+</button>
                         </div>
                     </div>
                     <div class="col-md-2"> 
                         <div class="btn-group btn-group-sm brush">
                             <button class="filter-btn brush-remove btn btn-info">-</button>
-                            <button class="btn btn-secondary btn-disabled" disabled>Brush</button>
+                            <button class="btn btn-light btn-disabled" disabled>Brush</button>
                             <button class="filter-btn brush-add btn btn-info">+</button>
                         </div>
                     </div>
                     <div class="col-md-2"> 
                         <div class="btn-group btn-group-sm greyscale">
                             <button class="filter-btn greyscale-remove btn btn-info">-</button>
-                            <button class="btn btn-secondary btn-disabled" disabled>Greyscale</button>
+                            <button class="btn btn-light btn-disabled" disabled>Greyscale</button>
                             <button class="filter-btn greyscale-add btn btn-info">+
                                
                             </button>
@@ -91,7 +85,7 @@
                             <button class="filter-btn color-remove btn btn-info">
                                 <!-- <form action="/_method=PUT" method="POST"></form> -->
                             -</button>
-                            <button class="btn btn-secondary btn-disabled" disabled>Blur</button>
+                            <button class="btn btn-light btn-disabled" disabled>Blur</button>
                             <button class="filter-btn color-add btn btn-info">+</button>
                         </div>
                         
@@ -99,11 +93,11 @@
                     <div class="col-md-2"> 
                         <div class="btn-group btn-group-sm saturation">
                             <button class="filter-btn saturation-remove btn btn-info">-</button>
-                            <button class="btn btn-secondary btn-disabled" disabled>Saturation</button>
+                            <button class="btn btn-light btn-disabled" disabled>Saturation</button>
                             <button class="filter-btn saturation-add btn btn-info">+</button>
                         </div>
                     </div>
-                
+                    
                     <div  class="row text-center my-1">
                         <div class="col-md-2" >
                             <h5 class="brightnessCounter" id="brightnessCounter" target="<%=images.brightness%>"><%=images.brightness%></h5>
@@ -127,7 +121,7 @@
                 <div  class="row text-center my-3"> 
                     <div class="col-md-5"> 
                         <div class="btn-group btn-group-sm">
-                            <button class=" resetColor btn btn-secondary">Reset Colorify</button>
+                            <button class=" resetColor btn btn-danger">Reset Colorify</button>
                         </div>
                     </div>
                 </div>
@@ -135,9 +129,11 @@
         
         
     </div>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js" integrity="sha512-JjFeUD2H//RHt+DjVf1BTuy1X5ZPtMl0svQ3RopX641DWoSilJ89LsFGq4Sw/6BSBfULqUW/CfnVopV5CfvRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        
+       
         <script src="/javascripts/effects.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/camanjs/4.1.2/caman.full.min.js" integrity="sha512-JjFeUD2H//RHt+DjVf1BTuy1X5ZPtMl0svQ3RopX641DWoSilJ89LsFGq4Sw/6BSBfULqUW/CfnVopV5CfvRXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+       
        
     
-</body>
+<!-- </body> -->
