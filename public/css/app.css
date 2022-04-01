@@ -2,7 +2,6 @@
   background-color: ghostwhite;
   overflow: scroll;
   background-image: linear-gradient(95.2deg, #e3e8ee 26.8%, #fcfef9 64%);
-  /* background-color: white; */
 }
 
 #sticker {
@@ -421,7 +420,7 @@ ul li {
   width: 50px;
   height: 50px;
   background: darkturquoise;
-  margin-left: 50px;
+  margin-right: 25px;
 }
 
 .circle {
@@ -431,7 +430,7 @@ ul li {
   border-radius: 50%;
   background: tomato;
   transform: rotate(-33deg);
-  margin-left: 50px;
+  margin-right: 25px;
 }
 
 .triangle {
@@ -441,7 +440,7 @@ ul li {
   border: 30px solid transparent;
   border-top: 0;
   border-bottom: 50px solid slateblue;
-  margin-left: 50px;
+  margin-right: 25px;
 }
 
 .triangle {
@@ -503,4 +502,17 @@ section {
   background-color: #3c31dd;
   transform: translate(-4%, 40%);
   z-index: -1;
+}
+
+@media screen and (max-width: 990px) {
+  .contentContainer {
+    flex-wrap: wrap;
+  }
+  #uploadFont {
+    font-size: 25px;
+  }
+
+  .item:first-child {
+    flex-basis: 100%;
+  }
 }
