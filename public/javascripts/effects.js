@@ -41,14 +41,12 @@ const imageID = document.getElementById('imageID')
 
 // grab database effect from show EJS using target
 let brightTarget = countBrightness.getAttribute('target')
-console.log(brightTarget)
 let brushTarget = countBrush.getAttribute('target')
 let greyscaleTarget = countGreyscale.getAttribute('target')
 let blurTarget = countBlur.getAttribute('target')
 let saturationTarget = countSaturation.getAttribute('target')
 let imageIDTarget = imageID.getAttribute('target')
 let colorifyTarget = countColorify.getAttribute('target')
-console.log(colorifyTarget)
 let currentlyAdjusting = imageIDTarget
 
 // Pin filter effects
@@ -63,7 +61,7 @@ grabOverlay.style.backgroundColor = `rgb(${colorifyTarget})`
 
 
 const coloring = image.style.fillStyle =`rgba(${colorifyTarget})`
-console.log(coloring)
+
 
 
 // Unhide effect options on button click
@@ -219,9 +217,7 @@ optionDownload.addEventListener('click', async () => {
     context.fillStyle = "green"
     context.shadowColor = coloring
     context.shadowOffsetX =  50
-    console.log(context)
     context.drawImage(image, 0,0, canvas.width, canvas.height);
-    console.log(context)
     let jpegUrl = canvas.toDataURL('image/jpg')
     const anchor = document.createElement("a");
     anchor.style.display = "none";
