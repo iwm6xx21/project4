@@ -15,8 +15,8 @@ const resetColor = document.querySelector('.resetColor')
 const canvas = document.querySelector('#image_canvas')
 const context = canvas.getContext('2d');
 
-const connectURL = "https://rhubarb-sundae-89238.herokuapp.com"
-// const connectURL = "http://localhost:2000"
+// const connectURL = "https://rhubarb-sundae-89238.herokuapp.com"
+const connectURL = "http://localhost:2000"
 
 
 
