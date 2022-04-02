@@ -1,6 +1,8 @@
 ## Your Project Idea
 
-- I am proposing a photo editor application that allows users to create unique artwork using an uploaded picture of the user's choice. Users will be able to change the color of uploaded photos, add text, and distort photos. This will be a full CRUD application using Node.js.
+- I am proposing a photo editor application that allows users to create unique artwork using an uploaded picture of the user's choice. Users will be able to change the color of uploaded photos and distort photos. This will be a full CRUD application using Node.js.
+
+![Screen Shot 2022-04-01 at 6 46 14 PM](https://user-images.githubusercontent.com/90514977/161357502-85292f85-c544-4f46-b1f1-e8d1778c87bf.png)
 
 ## Technologies
 
