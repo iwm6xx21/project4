@@ -143,7 +143,7 @@ resetColor.addEventListener('click', () => {
 document.addEventListener('click', (e) => {
             image.style.filter = `grayscale(${greyCounts}%) brightness(${brightnessCounts}%) hue-rotate(${brushCounts}deg) saturate(${saturationCounts}%) blur(${blurCounts}px)`
             if(e.target.classList.contains('brightness-add')){
-                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                axios.put(`${connectURL}/${currentlyAdjusting}`,{
                     brightness: brightnessCounts <= 200 ? countBrightness.innerText = brightnessCounts++ : 200
                 })
             } 
