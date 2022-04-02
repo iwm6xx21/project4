@@ -15,6 +15,9 @@ const resetColor = document.querySelector('.resetColor')
 const canvas = document.querySelector('#image_canvas')
 const context = canvas.getContext('2d');
 
+const connectURL = "https://rhubarb-sundae-89238.herokuapp.com"
+// const connectURL = "http://localhost:2000"
+
 
 
 
@@ -104,7 +107,7 @@ colorifyOption.addEventListener('click', () => {
     let colorTwo = randomColor()
     let colorThree = randomColor() 
     
-    axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+    axios.put(`${connectURL}/${currentlyAdjusting}`,{
         color1: colorOne,
         color2: colorTwo,
         color3: colorThree
@@ -123,7 +126,7 @@ resetColor.addEventListener('click', () => {
     let colorTwo = 0
     let colorThree = 0
     // axios here
-    axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+    axios.put(`${connectURL}/${currentlyAdjusting}`,{
         color1: colorOne,
         color2: colorTwo,
         color3: colorThree
@@ -149,7 +152,7 @@ document.addEventListener('click', (e) => {
 
             if(e.target.classList.contains('brightness-remove')){
                 
-                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                axios.put(`${connectURL}/${currentlyAdjusting}`,{
                     brightness: brightnessCounts >= 0 ? countBrightness.innerText = brightnessCounts-- :  0
                     
                 })
@@ -157,52 +160,52 @@ document.addEventListener('click', (e) => {
 
             if(e.target.classList.contains('greyscale-add')){
 
-                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                axios.put(`${connectURL}/${currentlyAdjusting}`,{
                     greyscale: greyCounts <= 100 ? countGreyscale.innerText = greyCounts++ : 100
                 })
             }
 
             if(e.target.classList.contains('greyscale-remove')) {
 
-                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                axios.put(`${connectURL}/${currentlyAdjusting}`,{
                     greyscale: greyCounts > 0 ? countGreyscale.innerText = greyCounts -=1 : 0
                 })
             }
 
             if(e.target.classList.contains('brush-add')){
-                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                axios.put(`${connectURL}/${currentlyAdjusting}`,{
                     brush: brushCounts <= 100 ? countBrush.innerText = brushCounts++ : 100
                 })
             }
 
             if(e.target.classList.contains('brush-remove')) {
-                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                axios.put(`${connectURL}/${currentlyAdjusting}`,{
                     brush: brushCounts >= 0 ? countBrush.innerText = brushCounts -=1 : 0
                 })
             }
 
             if(e.target.classList.contains('saturation-add')){
-                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                axios.put(`${connectURL}/${currentlyAdjusting}`,{
                     saturation: saturationCounts <= 200 ? countSaturation.innerText = saturationCounts++ : 200
                 })
             }
 
             if(e.target.classList.contains('saturation-remove')){
-                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                axios.put(`${connectURL}/${currentlyAdjusting}`,{
                     saturation: saturationCounts >= 0 ? countSaturation.innerText = saturationCounts-- :  0
                 })
 
             }
 
             if(e.target.classList.contains('color-add')){
-                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                axios.put(`${connectURL}/${currentlyAdjusting}`,{
                     blur: blurCounts <= 4 ? countBlur.innerText = blurCounts++ : 4
                 })
             }
 
             if(e.target.classList.contains('color-remove')){
 
-                axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
+                axios.put(`${connectURL}/${currentlyAdjusting}`,{
                     blur: blurCounts > 0 ? countBlur.innerText = blurCounts -=1 : 0
                 })
             }
