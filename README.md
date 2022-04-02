@@ -21,7 +21,7 @@
 - As a user, I would like the functionality of the app to be intuitive.
 - As a user, I would like to be able to upload an image.
 - As a user, I would like to be able to edit an image uploaded using editor options.
-- As a user, I would like to be able to delete an uploaded image.
+- As a user, I would like to be able to change an uploaded image.
 - As a user, I would like to be able to download the image after I'm done with the editor.
 
 ## Stretch Goals
