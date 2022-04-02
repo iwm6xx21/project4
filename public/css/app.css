@@ -55,6 +55,31 @@
   color: red;
 }
 
+.photoContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right, #413d3d, #706d6d);
+  box-shadow: 10px 10px 10px 8px rgba(231, 228, 228, 0.25),
+    10px 10px 10px 8px rgba(236, 233, 233, 0.22);
+}
+
+.body::before {
+  content: "";
+  position: fixed;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 10px;
+  box-shadow: 0px 0 10px rgba(3, 3, 3, 0.8);
+  z-index: 100;
+}
+
+.homeImage {
+  width: 400px;
+  height: 400px;
+}
+
 .uploadContainer {
   max-width: 600px !important;
   height: 200px;
@@ -376,7 +401,7 @@ ul li {
 
 .carousel-item {
   height: 14rem;
-  background: #777;
+  /* background: #777; */
   position: relative;
   background-position: center;
   background-size: cover;
@@ -577,5 +602,12 @@ section {
 
   .item:first-child {
     flex-basis: 100%;
+  }
+  .photoContainer {
+    flex-wrap: wrap;
+  }
+
+  .item:first-child {
+    flex-wrap: wrap;
   }
 }
