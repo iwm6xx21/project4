@@ -2,7 +2,7 @@ require('dotenv').config()
 const express = require('express');
 const methodOverride = require('method-override');
 const app = express()
-const PORT = 2000;
+const PORT = process.env.PORT || 2000;
 const expressLayouts = require('express-ejs-layouts')
 const imageController = require('./controllers/image')
 

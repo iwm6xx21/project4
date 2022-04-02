@@ -16,15 +16,8 @@ router.get('/upload',(req, res) => {
 })
 
 
-router.get("/editor", (req, res) => {
-    Image.find({},(err,images) => {
-        res.render('editor', {images})
-    });
-})
-
-
 // post route for uploading image to the editor
-router.post('/editor', upload.array('img'), async (req, res) => {
+router.post('/', upload.array('img'), async (req, res) => {
     const uploads = new Image(req.body)
     uploads.img = req.files.map(f => ({url: f.path, filename: f.filename}))
     await uploads.save()
@@ -38,9 +31,31 @@ router.get('/:id', async (req, res) => {
         res.render('show', {images})
 })
 
-// Update effect route
 
-router.put('/:id',  async (req, res) => {
+// edit image route
+router.get('/:id/edit', async (req, res) => {
+    Image.findById(req.params.id, (err, image) => {
+        res.render('edit', {image})
+    })
+})
+
+
+// edit image in database then redirect to the show page. 
+
+router.put('/:id/edit', upload.array('img'), async (req, res) => {
+    const redirect = Image.findById(req.params.id)
+    const image = await Image.findByIdAndUpdate(req.params.id, req.body, {new: true});
+    const imgs = req.files.map(f => ({url: f.path, filename: f.filename}));
+    image.img.shift(...imgs)
+    image.img.push(...imgs)
+    await image.save()
+
+    res.redirect(`/${image.id}`)
+})
+
+// Update effects in database route. This is Triggered by click events in the effects.js file
+
+router.put('/:id', async (req, res) => {
     Image.findByIdAndUpdate(req.params.id, req.body, {new: true}, (img) => {
         return Image.find({}).then(imgs => {
             return res.json(imgs)

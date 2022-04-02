@@ -26,8 +26,8 @@
                         <p>Saturation</p>
                     </li>
                     <li class="li">
-                        <span class="iconify" data-icon="akar-icons:image" data-width="50"></span>
-                        <p>Change</p>
+                        <a class="changeButton" href="/<%= images._id%>/edit"><span class="iconify" data-icon="akar-icons:image" data-width="50"></span>
+                        <p>Change</p></a>
                     </li>
                     <li class="download">
                         <span class="iconify" data-icon="bx:export" data-width="50"></span>
@@ -43,18 +43,18 @@
             </div>
         </div>
         <div class="content">
-            <!-- <button class="resetColor">Reset</button> -->
+
         </div>
         <canvas id="image_canvas" width="2400px" height="1600px"></canvas>
         <div class="imageDiv">
+            
             <div class="imager">
                 <% for (let image of images.img) { %>
                     <img crossorigin="anonymous" class="image" id="my_image"
                 src="<%= image.url %> " alt="">
                  <% } %>
-                 <div class="image__overlay">
+                 <div class="image__overlay"></div>
             </div>
-                </div>
                 
                 <div  class="row text-center my-3">
                     <div class="col-md-2"> 
@@ -82,9 +82,7 @@
                     </div>
                     <div class="col-md-2"> 
                         <div class="btn-group btn-group-sm color">
-                            <button class="filter-btn color-remove btn btn-info">
-                                <!-- <form action="/_method=PUT" method="POST"></form> -->
-                            -</button>
+                            <button class="filter-btn color-remove btn btn-info">-</button>
                             <button class="btn btn-light btn-disabled" disabled>Blur</button>
                             <button class="filter-btn color-add btn btn-info">+</button>
                         </div>

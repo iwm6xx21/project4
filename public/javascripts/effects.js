@@ -15,9 +15,6 @@ const resetColor = document.querySelector('.resetColor')
 const canvas = document.querySelector('#image_canvas')
 const context = canvas.getContext('2d');
 
-console.log(context)
-
-
 
 
 
@@ -41,26 +38,29 @@ const imageID = document.getElementById('imageID')
 
 // grab database effect from show EJS using target
 let brightTarget = countBrightness.getAttribute('target')
+console.log(brightTarget)
 let brushTarget = countBrush.getAttribute('target')
 let greyscaleTarget = countGreyscale.getAttribute('target')
 let blurTarget = countBlur.getAttribute('target')
 let saturationTarget = countSaturation.getAttribute('target')
 let imageIDTarget = imageID.getAttribute('target')
 let colorifyTarget = countColorify.getAttribute('target')
+console.log(colorifyTarget)
 let currentlyAdjusting = imageIDTarget
 
 // Pin filter effects
+
 const styling = image.style.filter = `grayscale(${greyscaleTarget}%) brightness(${brightTarget}%) hue-rotate(${brushTarget}deg) saturate(${saturationTarget}%) blur(${blurTarget}px)`
 
 
 
 // Pin colorify effect
-grabOverlay.style.opacity = "0.40" 
+grabOverlay.style.opacity = '.20' 
 grabOverlay.style.backgroundColor = `rgb(${colorifyTarget})`
 
 
 const coloring = image.style.fillStyle =`rgba(${colorifyTarget})`
-console.log(context.fillStyle = coloring)
+console.log(coloring)
 
 
 // Unhide effect options on button click
@@ -109,7 +109,7 @@ colorifyOption.addEventListener('click', () => {
         color2: colorTwo,
         color3: colorThree
     }).then ( (res) => {
-        grabOverlay.style.opacity = "0.40"
+        grabOverlay.style.visibility = "visible"
         grabOverlay.style.backgroundColor = `rgba(${colorOne}, ${colorTwo}, ${colorThree})`
     }) 
         
@@ -128,9 +128,10 @@ resetColor.addEventListener('click', () => {
         color2: colorTwo,
         color3: colorThree
     }).then ( (res) => {
-        grabOverlay.style.opacity = "0"
+       
         grabOverlay.style.backgroundColor = `rgba(${colorOne}, ${colorTwo}, ${colorThree})`
         resetColor.style.visibility = "hidden"
+        grabOverlay.style.visibility = "hidden"
     }) 
         
         
@@ -139,7 +140,6 @@ resetColor.addEventListener('click', () => {
 
 // click event for filter effects
 document.addEventListener('click', (e) => {
-    // e.preventDefault();
             image.style.filter = `grayscale(${greyCounts}%) brightness(${brightnessCounts}%) hue-rotate(${brushCounts}deg) saturate(${saturationCounts}%) blur(${blurCounts}px)`
             if(e.target.classList.contains('brightness-add')){
                 axios.put(`http://localhost:2000/${currentlyAdjusting}`,{
@@ -213,11 +213,12 @@ document.addEventListener('click', (e) => {
 // download image 
 optionDownload.addEventListener('click', async () => {
     context.filter = styling
-    context.fillStyle = coloring
+    context.fillStyle = "green"
     context.shadowColor = coloring
     context.shadowOffsetX =  50
     console.log(context)
     context.drawImage(image, 0,0, canvas.width, canvas.height);
+    console.log(context)
     let jpegUrl = canvas.toDataURL('image/jpg')
     const anchor = document.createElement("a");
     anchor.style.display = "none";

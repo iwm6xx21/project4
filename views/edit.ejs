@@ -1,0 +1,29 @@
+<body class="body">
+    
+
+
+    <div class="contentContainer">
+        <div class="uploadTextContainer">
+             <h1 class="text-center mt-5 item" id="uploadFont"><span class="iconify" id="imageSpan" data-icon="bi:card-image" data-width="60"></span> Change Your Image</h1>
+        </div>
+        <div class="boxContainer item">
+            <div class="box"></div>
+            <div class="circle"></div>
+            <div class="triangle"></div>
+            <div class="box" id="gold"></div>
+        </div>
+    </div>
+    
+    
+    <div class="uploadContainer" id="uploadBackground">
+            <form class="text-center mt-5" action="/<%=image.id%>/edit?_method=PUT" method="POST" enctype="multipart/form-data">
+                <input required class="form-control mt-5 w-50 mr-2" type="file" name="img" id="img" >
+                <button class="btn btn-secondary btn-md mt-5 ">Change</button>
+            </form>
+    </div>
+    
+    <div class="backButtonDiv">
+        <a href="/<%= image._id %> "><button class="backButton btn-danger">Back</button></a>
+    </div>
+
+    </body>
